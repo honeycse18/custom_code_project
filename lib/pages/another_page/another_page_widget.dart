@@ -61,7 +61,7 @@ class _AnotherPageWidgetState extends State<AnotherPageWidget> {
               SizedBox(
                 width: double.infinity,
                 height: 500.0,
-                child: custom_widgets.DisplayDataWidget(
+                child: custom_widgets.CountryViewWidget(
                   width: double.infinity,
                   height: 500.0,
                 ),
