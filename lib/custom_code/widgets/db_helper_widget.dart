@@ -9,9 +9,10 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+/*
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
   static Database? _database;
@@ -64,6 +65,7 @@ class DatabaseHelper {
     db.close();
   }
 }
+*/
 
 // Set your widget name, define your parameter, and then add the
 // boilerplate code using the green button on the right!

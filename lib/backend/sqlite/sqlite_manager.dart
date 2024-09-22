@@ -20,8 +20,8 @@ class SQLiteManager {
       return;
     }
     _database = await initializeDatabaseFromDbFile(
-      'my_database',
-      'myDatabase.db',
+      'wali2_wali_d_b',
+      'Wali2WaliDB.db',
     );
   }
 

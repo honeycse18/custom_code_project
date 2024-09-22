@@ -41,6 +41,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'ResPage',
+          path: '/resPage',
+          builder: (context, params) => const ResPageWidget(),
+        ),
+        FFRoute(
+          name: 'AnotherPage',
+          path: '/anotherPage',
+          builder: (context, params) => const AnotherPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

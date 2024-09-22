@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for firstNumber widget.
+  FocusNode? firstNumberFocusNode;
+  TextEditingController? firstNumberTextController;
+  String? Function(BuildContext, String?)? firstNumberTextControllerValidator;
+  // State field(s) for secondNumber widget.
+  FocusNode? secondNumberFocusNode;
+  TextEditingController? secondNumberTextController;
+  String? Function(BuildContext, String?)? secondNumberTextControllerValidator;
   // Stores action output result for [Custom Action - sumAction] action in Button widget.
   double? result;
 
@@ -21,10 +21,10 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   @override
   void dispose() {
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    firstNumberFocusNode?.dispose();
+    firstNumberTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    secondNumberFocusNode?.dispose();
+    secondNumberTextController?.dispose();
   }
 }

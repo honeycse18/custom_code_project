@@ -9,11 +9,14 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'DatabaseHelper.dart'; // Import the DatabaseHelper class
+//import 'DatabaseHelper.dart'; // Import the DatabaseHelper class
+
+/*
 
 Future<List<Map<String, dynamic>>> fetchUserData() async {
   return await DatabaseHelper.instance.getUserData();
 }
+*/
 
 // Set your widget name, define your parameter, and then add the
 // boilerplate code using the green button on the right!

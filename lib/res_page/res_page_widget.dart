@@ -1,34 +1,34 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'res_page_model.dart';
+export 'res_page_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+class ResPageWidget extends StatefulWidget {
+  const ResPageWidget({super.key});
 
   @override
-  State<HomePageWidget> createState() => _HomePageWidgetState();
+  State<ResPageWidget> createState() => _ResPageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
-  late HomePageModel _model;
+class _ResPageWidgetState extends State<ResPageWidget> {
+  late ResPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => ResPageModel());
 
-    _model.firstNumberTextController ??= TextEditingController();
-    _model.firstNumberFocusNode ??= FocusNode();
+    _model.firstNameTextController ??= TextEditingController();
+    _model.firstNameFocusNode ??= FocusNode();
 
-    _model.secondNumberTextController ??= TextEditingController();
-    _model.secondNumberFocusNode ??= FocusNode();
+    _model.lastNameTextController ??= TextEditingController();
+    _model.lastNameFocusNode ??= FocusNode();
+
+    _model.displayNameTextController ??= TextEditingController();
+    _model.displayNameFocusNode ??= FocusNode();
   }
 
   @override
@@ -71,8 +71,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
-                    controller: _model.firstNumberTextController,
-                    focusNode: _model.firstNumberFocusNode,
+                    controller: _model.firstNameTextController,
+                    focusNode: _model.firstNameFocusNode,
                     autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -82,7 +82,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'TextField',
+                      hintText: (_model.firstNameFocusNode?.hasFocus ?? false)
+                          .toString(),
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Inter',
@@ -125,7 +126,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           letterSpacing: 0.0,
                         ),
                     cursorColor: FlutterFlowTheme.of(context).primaryText,
-                    validator: _model.firstNumberTextControllerValidator
+                    validator: _model.firstNameTextControllerValidator
                         .asValidator(context),
                   ),
                 ),
@@ -135,8 +136,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
-                    controller: _model.secondNumberTextController,
-                    focusNode: _model.secondNumberFocusNode,
+                    controller: _model.lastNameTextController,
+                    focusNode: _model.lastNameFocusNode,
                     autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
@@ -146,7 +147,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'TextField',
+                      hintText: (_model.lastNameFocusNode?.hasFocus ?? false)
+                          .toString(),
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Inter',
@@ -189,78 +191,92 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           letterSpacing: 0.0,
                         ),
                     cursorColor: FlutterFlowTheme.of(context).primaryText,
-                    validator: _model.secondNumberTextControllerValidator
+                    validator: _model.lastNameTextControllerValidator
                         .asValidator(context),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    var shouldSetState = false;
-                    _model.result = await actions.sumAction(
-                      double.parse(_model.firstNumberTextController.text),
-                      double.parse(_model.secondNumberTextController.text),
-                    );
-                    shouldSetState = true;
-                    await Future.delayed(const Duration(milliseconds: 1000));
-                    if (functions.chekfor50(_model.result!)!) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Greater Than 60',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                          ),
-                          duration: const Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 25.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextFormField(
+                    controller: _model.displayNameTextController,
+                    focusNode: _model.displayNameFocusNode,
+                    autofocus: false,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
+                      hintText: (_model.displayNameFocusNode?.hasFocus ?? false)
+                          .toString(),
+                      hintStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Inter',
+                                letterSpacing: 0.0,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
                         ),
-                      );
-                      if (shouldSetState) safeSetState(() {});
-                      return;
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Less  Than 60',
-                            style: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
-                          ),
-                          duration: const Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
                         ),
-                      );
-                      if (shouldSetState) safeSetState(() {});
-                      return;
-                    }
-
-                    if (shouldSetState) safeSetState(() {});
-                  },
-                  text: 'Generate Output',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter Tight',
-                          color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Inter',
                           letterSpacing: 0.0,
                         ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(8.0),
+                    cursorColor: FlutterFlowTheme.of(context).primaryText,
+                    validator: _model.displayNameTextControllerValidator
+                        .asValidator(context),
                   ),
                 ),
               ),
               Text(
-                _model.result.toString(),
+                _model.firstNameTextController.text,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      letterSpacing: 0.0,
+                    ),
+              ),
+              Text(
+                _model.lastNameTextController.text,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Inter',
+                      letterSpacing: 0.0,
+                    ),
+              ),
+              Text(
+                _model.displayNameTextController.text,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
                       letterSpacing: 0.0,
